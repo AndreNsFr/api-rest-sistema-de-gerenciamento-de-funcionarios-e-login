@@ -4,6 +4,7 @@ import cors from 'cors'
 
 const server = express()
 
+server.use(express.json())
 server.use(cors({
     origin: '*', // permite todas as origens
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // todos os métodos comuns
