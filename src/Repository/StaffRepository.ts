@@ -41,9 +41,14 @@ class StaffRepository {
                 }
             });
 
+            if (!show) {
+                throw new Error('usuario não encontrado')
+            }
+
             return show;
 
         } catch (error) {
+
         }
     }
 
@@ -60,13 +65,13 @@ class StaffRepository {
             if (!user_in_db) { // se o usuario nao for encotrado, entao esta errado as credenciais ( e no caso é true pois faltaria, e faltar é igual a false, e o ! inverte o valor da expressao, ou seja, se user_in_db for igual diferente de true (que é false) então fazer o comando abaixo)
                 return false;// ?usuário não encontrado
             }
-    
-            const comparar = await bcrypt.compare(data_login.senha,user_in_db.senha)
+
+            const comparar = await bcrypt.compare(data_login.senha, user_in_db.senha)
 
             if (!comparar) { // se comparar for false fazer a linha de codigo abaixo
                 return false // ?senha não corresponde
             }
-    
+
             return true
 
         } catch (error) {

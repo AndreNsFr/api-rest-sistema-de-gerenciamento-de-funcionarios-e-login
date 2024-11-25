@@ -20,8 +20,9 @@ class StaffServices {
     getStaff(cpf) {
         return staffRepository.getStaff(cpf).then((x) => {
             return x
-        }).catch(() => {
-            return { error: 'erro ao pesquisar usutario' }
+        }).catch((error) => {
+            console.log(error)
+            return { erro: error }
         })
     }
 }

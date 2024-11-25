@@ -7,9 +7,11 @@ const staffServices = new StaffServices
 
 class StaffControllers {
 
+    // TODO: colocar a logica do getStaff de retornar error para o front 
+
     createStaff(req: Request, res: Response) {
         try {
-            
+
             CreateStaffSchema.validate(req.body)
 
             staffServices.createStaff(req.body).then(() => {
@@ -18,17 +20,17 @@ class StaffControllers {
                 res.send('ocorreu um erro:' + error)
             })
         } catch (error) {
-            res.status(200)
-
-            res.send('informações faltando')
+            res.json({ erro: error })
             res.status(400)
         }
 
     }
+    // TODO: colocar a logica do getStaff de retornar error para o front 
+
 
     updateStaff(req: Request, res: Response) {
 
-        
+
 
         try {
             UpdateStaffSchema.validate(req.body)
@@ -36,24 +38,32 @@ class StaffControllers {
             GetSchema.validate(req.query.cpf)
 
             staffServices.updateStaff(req.body, req.query.cpf).then(usuario_alterado => {
-                res.send(usuario_alterado)
-                res.status(200)
+                if (usuario_alterado !== undefined) {
+                    res.send(usuario_alterado).status(200)
+                } else {
+                    res.json({ erro: 'usuario não entrado para update' })
+                }
             })
         } catch (error) {
-            res.send('inforamções faltando')
+            res.json({ erro: error })
             res.status(400)
         }
     }
+
+    // TODO: colocar a logica do getStaff de retornar error para o front 
 
     deleteStaff(req: Request, res: Response) {
         try {
             DelSchema.validate(req.query.cpf)
             staffServices.deleteStaff(req.query.cpf).then(Resultado_delete => {
-                res.send(Resultado_delete)
-                res.status(200)
+                if (Resultado_delete !== undefined) {
+                    res.send(Resultado_delete).status(200)
+                } else {
+                    res.json({ erro: 'usuario não encotrado no banco de dados' }).status(400)
+                }
             })
         } catch (error) {
-            res.send('inforamções faltando')
+            res.json({ erro: error })
             res.status(400)
         }
     }
@@ -63,12 +73,14 @@ class StaffControllers {
         try {
             GetSchema.validate(req.query.cpf)
             staffServices.getStaff(req.query.cpf).then(funcionario => {
-                res.send(funcionario)
+                if (funcionario !== undefined) {
+                    res.send(funcionario).status(200)
+                } else {
+                    res.json({ erro: "funcionario não encontrado" }).status(400)
+                }
             })
-            res.status(200)
         } catch (error) {
-            res.send('inforamções faltando')
-            res.status(400)
+            res.json({ erro: error }).status(400)
         }
     }
 

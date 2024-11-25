@@ -24,17 +24,17 @@ class authController {
 
     async refreshToken(req: Request, res: Response) {
         try {
-            
-            
-            const dados_validados = await refreshToken.validate(req.body ,{ stripUnknown: true } )
 
-            authservice.Refresh(dados_validados).then((status)=>{
+
+            const dados_validados = await refreshToken.validate(req.body, { stripUnknown: true })
+
+            authservice.Refresh(dados_validados).then((status) => {
                 res.send(status)
             })
-            
-            
+
+
         } catch (error) {
-            
+
         }
 
 
