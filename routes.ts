@@ -11,6 +11,7 @@ router.post('/auth', authcontroller.Authenticate)
 router.post('/auth/refresh', authcontroller.refreshToken)
 router.post('/', staffController.createStaff)
 router.get('/', staffController.getStaff)
+router.get('/staff', staffController.getAllStaff)
 router.put('/', staffController.updateStaff)
 router.delete('/', staffController.deleteStaff)
 

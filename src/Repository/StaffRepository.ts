@@ -10,6 +10,25 @@ const prisma = new PrismaClient()
 
 class StaffRepository {
 
+    async GetAllStaff() {
+        try {
+            const getAll = await prisma.funcionario.findMany()
+
+            // remove a senha de todos, e como estou usando o foreach, irá passar um por um e deletar
+            getAll.forEach(json_dentro_do_array => { delete json_dentro_do_array.senha })
+            getAll.forEach(json_dentro_do_array => { delete json_dentro_do_array.id })
+
+            if (!getAll) {
+                throw new Error('sem retorno')
+            }
+
+            return getAll
+
+        } catch (error) {
+
+        }
+    }
+
     async createStaff(info: Istaff) {
         try {
 

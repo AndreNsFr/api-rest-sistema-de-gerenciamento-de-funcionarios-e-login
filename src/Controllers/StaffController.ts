@@ -7,7 +7,20 @@ const staffServices = new StaffServices
 
 class StaffControllers {
 
-    // TODO: colocar a logica do getStaff de retornar error para o front 
+
+    getAllStaff(req: Request, res: Response) {
+
+        try {
+            staffServices.GetAllStaff().then((x) => {
+                res.send(x).status(200)
+            }).catch((error) => {
+                res.send({ erro: error })
+            })
+        } catch (error) {
+            res.send(error)
+        }
+
+    }
 
     createStaff(req: Request, res: Response) {
         try {
@@ -25,7 +38,7 @@ class StaffControllers {
         }
 
     }
-    // TODO: colocar a logica do getStaff de retornar error para o front 
+
 
 
     updateStaff(req: Request, res: Response) {

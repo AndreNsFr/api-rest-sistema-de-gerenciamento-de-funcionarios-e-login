@@ -25,6 +25,14 @@ class StaffServices {
             return { erro: error }
         })
     }
+
+    GetAllStaff() {
+        return staffRepository.GetAllStaff().then((x) => {
+            return x
+        }).catch((error) => {
+            return { erro: error }
+        })
+    }
 }
 
 export default StaffServices
