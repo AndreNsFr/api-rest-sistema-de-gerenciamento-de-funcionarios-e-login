@@ -1,7 +1,7 @@
 import express, { urlencoded } from "express";
 import router from './routes'
 import cors from 'cors'
-import bodyParser from "body-parser";
+
 
 const server = express()
 

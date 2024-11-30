@@ -16,8 +16,9 @@ export const CreateStaffSchema = Yup.object().shape({
 )
 
 export const UpdateStaffSchema = Yup.object().shape({
+    imagem: Yup.string(),
     senha: Yup.string(),
     email: Yup.string(),
     departamento: Yup.string(),
     nome: Yup.string()
-})
+})  

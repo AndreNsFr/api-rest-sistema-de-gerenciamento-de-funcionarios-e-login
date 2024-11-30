@@ -26,9 +26,9 @@ class StaffControllers {
         try {
             CreateStaffSchema.validate(req.body)
             staffServices.createStaff(req.body).then(() => {
-                res.send({msg :"usuario criado com sucesso"})
+                res.send({})
             }).catch(error => {
-                res.send({'ocorreu um erro':  error})
+                res.send({ 'ocorreu um erro': error })
             })
         } catch (error) {
             res.json({ erro: error })
@@ -41,9 +41,8 @@ class StaffControllers {
 
     updateStaff(req: Request, res: Response) {
 
-
-
         try {
+
             UpdateStaffSchema.validate(req.body)
 
             GetSchema.validate(req.query.cpf)

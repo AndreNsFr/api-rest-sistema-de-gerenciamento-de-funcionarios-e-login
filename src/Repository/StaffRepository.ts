@@ -101,7 +101,11 @@ class StaffRepository {
 
     async updateStaff(data: Istaff, cpf: string) {
 
-        const password = await bcrypt.hash(data.senha, 10)
+
+        let password = undefined
+        if (data.senha) {
+            password = await bcrypt.hash(data.senha, 10)
+        }
 
 
         try {
@@ -112,7 +116,8 @@ class StaffRepository {
                     senha: password ?? undefined,
                     departamento: data.departamento ?? undefined,
                     nome: data.nome ?? undefined,
-                    email: data.email ?? undefined
+                    email: data.email ?? undefined,
+                    imagem: data.imagem ?? undefined
                 }
             });
 
