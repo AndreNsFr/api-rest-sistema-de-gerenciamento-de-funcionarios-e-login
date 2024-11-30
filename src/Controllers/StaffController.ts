@@ -24,13 +24,11 @@ class StaffControllers {
 
     createStaff(req: Request, res: Response) {
         try {
-
             CreateStaffSchema.validate(req.body)
-
             staffServices.createStaff(req.body).then(() => {
-                res.send("usuario criado com sucesso")
+                res.send({msg :"usuario criado com sucesso"})
             }).catch(error => {
-                res.send('ocorreu um erro:' + error)
+                res.send({'ocorreu um erro':  error})
             })
         } catch (error) {
             res.json({ erro: error })

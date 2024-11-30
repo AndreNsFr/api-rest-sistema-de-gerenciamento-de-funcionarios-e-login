@@ -2,9 +2,10 @@ import * as Yup from 'yup';
 
 export const GetSchema = Yup.string().required()
 
-export const DelSchema =  Yup.string().required()
+export const DelSchema = Yup.string().required()
 
 export const CreateStaffSchema = Yup.object().shape({
+    imagem: Yup.string().required(),
     nome: Yup.string().required(),
     senha: Yup.string().required(),
     cpf: Yup.string().required(),

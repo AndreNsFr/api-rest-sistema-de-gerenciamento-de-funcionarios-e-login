@@ -15,6 +15,7 @@ datasource db {
 
 model funcionario {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
+  imagem       String
   nome         String
   senha        String
   departamento String

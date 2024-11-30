@@ -36,6 +36,7 @@ class StaffRepository {
 
             const Criar_funcionario = await prisma.funcionario.create({
                 data: {
+                    imagem: info.imagem,
                     cpf: info.cpf,
                     data: info.data,
                     departamento: info.departamento,

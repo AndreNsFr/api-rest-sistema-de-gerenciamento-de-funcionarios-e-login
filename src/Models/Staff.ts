@@ -1,8 +1,9 @@
 export interface Istaff {
-    nome : string,
+    imagem: string,
+    nome: string,
     senha: string,
-    departamento:string
+    departamento: string
     cpf: string,
-    email:string,
-    data:string
+    email: string,
+    data: string
 }
