@@ -132,10 +132,10 @@ class StaffRepository {
         try {
             const deleteStaff = await prisma.funcionario.delete({ where: { cpf: cpf } })
 
-            return 'usuario removido do banco de dados.'
+            return { status: "usuario removido do banco de dados." }
 
         } catch (error) {
-            return 'o usuario não encontrado'
+            return { erro: error }
         }
     }
 
