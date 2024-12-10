@@ -35,7 +35,7 @@ class authService {
             const validate_refreshToken = validateToken(data.refreshToken)
 
             if (validate_token && validate_refreshToken) {
-                return { status: "autenticação bem sucedida" }
+                return {status: "valido"}
             }
             if (validate_token == false && validate_refreshToken == true) {
 
@@ -46,7 +46,7 @@ class authService {
                 const token = createJwt({ email, cpf }, process.env.jtw_expiresIn)
                 const refreshToken = createJwt({ email, cpf }, process.env.refreshToken_expiresIn)
 
-                return { token, refreshToken }
+                return { status: "refreshToken valido",  token , refreshToken }
 
             }
 

@@ -13,6 +13,11 @@ export const refreshToken = yup.object().shape({
 
 export type Irefresh = yup.InferType<typeof refreshToken>
 
+export type IRefresh={
+    token:string,
+    refreshToken:string
+}
+
 export type Ipayload ={
     email:string,
     cpf:string
