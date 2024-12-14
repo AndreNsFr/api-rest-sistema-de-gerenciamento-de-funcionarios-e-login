@@ -15,7 +15,7 @@ export const createJwt = (payload: Iauth, expiresIn: string): string => {
 
 export const validateToken = (token: string): boolean => {
     try {
-        jwt.verify(token, process.env.JWTS)
+        const verify = jwt.verify(token, process.env.JWTS)
         return true
     } catch (error) {
         return false

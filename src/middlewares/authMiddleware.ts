@@ -20,7 +20,7 @@ export const authMiddleWare = async (Req: Request, Res: Response, Next: NextFunc
                 Res.set("refreshToken", status.refreshToken)
                 Next();
             } else {
-                Res.send({ erro: "não autorizado" }).status(405)
+                Res.status(405).send({ erro: "não autorizado" })
             }
         })
     } else {

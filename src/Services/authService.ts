@@ -16,7 +16,7 @@ class authService {
 
                 const refreshToken = createJwt(data, process.env.refreshToken_expiresIn)
 
-                return { token, refreshToken }
+                return { token, refreshToken, status: true }
             } else {
                 return { erro: 'cpf e/ou senha errados' }
             }
