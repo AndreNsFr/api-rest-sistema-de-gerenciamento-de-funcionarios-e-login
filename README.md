@@ -262,4 +262,3 @@ Este middleware é responsável por garantir que o Token JWT e o Refresh Token s
 A API está protegida por autenticação JWT para garantir a segurança dos dados de funcionários. É essencial enviar os tokens corretos para acessar as rotas protegidas. Caso tenha alguma dúvida ou queira contribuir, sinta-se à vontade para abrir uma issue ou um pull request!
 
 The API is protected by JWT authentication to ensure the security of employee data. It is essential to send the correct tokens to access protected routes. If you have any questions or would like to contribute, feel free to open an issue or a pull request!
-
