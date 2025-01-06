@@ -1,4 +1,4 @@
-import { Router, Response, Request } from "express";
+import { Response, Request, Router } from "express";
 import StaffControllers from "./src/Controllers/StaffController";
 import authController from "./src/Controllers/authControler";
 import { authMiddleWare } from "./src/middlewares/authMiddleware";
@@ -6,24 +6,26 @@ import { authMiddleWare } from "./src/middlewares/authMiddleware";
 
 const staffController = new StaffControllers()
 const authcontroller = new authController()
-const router = Router()
+const app = Router()
 
-router.post('/auth', authcontroller.Authenticate)
+
+
+app.post('/auth', authcontroller.Authenticate)
 
 // cria novo funcionário
-router.post('/funcionarios', authMiddleWare, staffController.createStaff)
+app.post('/funcionarios', authMiddleWare, staffController.createStaff)
 
 // pega um funcionário em especifico
-router.get('/funcionarios', authMiddleWare, staffController.getStaff)
+app.get('/funcionarios', authMiddleWare, staffController.getStaff)
 
 // pega todos os funcionários do banco
-router.get('/staff', authMiddleWare, staffController.getAllStaff)
+app.get('/staff', authMiddleWare, staffController.getAllStaff)
 
 // atualiza os dados de um funcionário especifico
-router.put('/funcionarios', authMiddleWare, staffController.updateStaff)
+app.put('/funcionarios', authMiddleWare, staffController.updateStaff)
 
 // deleta um usuario especifico
-router.delete('/funcionarios', authMiddleWare, staffController.deleteStaff)
+app.delete('/funcionarios', authMiddleWare, staffController.deleteStaff)
 
-export default router
+export default app
 

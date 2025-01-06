@@ -41,9 +41,11 @@ class StaffRepository {
                     data: info.data,
                     departamento: info.departamento,
                     email: info.email,
+                    telefone: info.telefone,
                     nome: info.nome,
                     senha: password
                 }
+
             });
 
         }

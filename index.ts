@@ -1,5 +1,5 @@
 import express, { urlencoded } from "express";
-import router from './routes'
+import app from './routes'
 import cors from 'cors'
 
 
@@ -13,7 +13,7 @@ server.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization', 'refresh_token'], // define headers comuns
 }));
 server.use(urlencoded({ extended: true, limit: '1gb' }));
-server.use(router)
+server.use(app)
 
 
 server.listen(process.env.PORT, () => { console.log('o servidor está ligado!!!') })
