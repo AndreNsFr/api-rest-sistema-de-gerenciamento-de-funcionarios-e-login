@@ -20,6 +20,7 @@ model funcionario {
   senha        String
   departamento String
   cpf          String @unique
+  telefone     String @unique
   email        String @unique
   data         String
 }

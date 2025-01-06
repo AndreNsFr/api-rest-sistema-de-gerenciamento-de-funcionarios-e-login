@@ -9,6 +9,7 @@ export const CreateStaffSchema = Yup.object().shape({
     nome: Yup.string().required(),
     senha: Yup.string().required(),
     cpf: Yup.string().required(),
+    telefone : Yup.string().required(),
     email: Yup.string().required(),
     data: Yup.string().required(),
     departamento: Yup.string().required()
