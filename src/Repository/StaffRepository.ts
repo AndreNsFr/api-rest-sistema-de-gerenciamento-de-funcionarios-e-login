@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import express, { json, response, Response } from "express";
 import { Istaff } from "../Models/Staff";
 import { Iauth } from "../schemas/authSchema";
 import bcrypt from "bcrypt"
@@ -25,7 +24,7 @@ class StaffRepository {
             return getAll
 
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -55,7 +54,7 @@ class StaffRepository {
 
     }
 
-    async getStaff(data) {
+    async getStaff(data:string) {
         try {
             const show = await prisma.funcionario.findUnique({
                 where: {
@@ -104,6 +103,7 @@ class StaffRepository {
     async updateStaff(data: Istaff, cpf: string) {
 
 
+
         let password = undefined
         if (data.senha) {
             password = await bcrypt.hash(data.senha, 10)
@@ -118,10 +118,12 @@ class StaffRepository {
                     senha: password ?? undefined,
                     departamento: data.departamento ?? undefined,
                     nome: data.nome ?? undefined,
+                    telefone: data.telefone ?? undefined,
                     email: data.email ?? undefined,
                     imagem: data.imagem ?? undefined
                 }
             });
+
 
             return atualizar_funcionario
 
@@ -130,7 +132,7 @@ class StaffRepository {
         }
     }
 
-    async deleteStaff(cpf) {
+    async deleteStaff(cpf:string) {
         try {
             const deleteStaff = await prisma.funcionario.delete({ where: { cpf: cpf } })
 
