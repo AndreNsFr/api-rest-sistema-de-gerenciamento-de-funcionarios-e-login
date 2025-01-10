@@ -62,6 +62,9 @@ class StaffRepository {
                 }
             });
 
+            delete show.id
+            delete show.senha
+
             if (!show) {
                 throw new Error('usuario não encontrado')
             }
@@ -69,7 +72,7 @@ class StaffRepository {
             return show;
 
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -123,9 +126,7 @@ class StaffRepository {
                     imagem: data.imagem ?? undefined
                 }
             });
-
-
-            return atualizar_funcionario
+            
 
         } catch (error) {
             console.error(error)
