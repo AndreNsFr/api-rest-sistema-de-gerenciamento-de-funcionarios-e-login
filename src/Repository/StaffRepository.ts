@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { Istaff } from "../Models/Staff";
 import { Iauth } from "../schemas/authSchema";
 import bcrypt from "bcrypt"
+import { stat } from "fs";
 
 
 const prisma = new PrismaClient()
@@ -47,9 +48,14 @@ class StaffRepository {
 
             });
 
+            if(!Criar_funcionario){
+                return {status: "erro inesperado"}
+            }
+
         }
         catch (error) {
             console.error(error)
+            return {status: "funcionário já existente/ informações já existentes", error}
         }
 
     }
