@@ -25,8 +25,8 @@ class StaffControllers {
     createStaff(req: Request, res: Response) {
         try {
             CreateStaffSchema.validate(req.body)
-            staffServices.createStaff(req.body).then(() => {
-                res.send({ status: "funcionario criado com sucesso" })
+            staffServices.createStaff(req.body).then((status_info) => {
+                res.send({ status: status_info })
             }).catch(error => {
                 res.send({ 'ocorreu um erro': error })
             })

@@ -52,6 +52,8 @@ class StaffRepository {
                 return {status: "erro inesperado"}
             }
 
+            return "funcionario criado com sucesso"
+
         }
         catch (error) {
             console.error(error)
