@@ -19,7 +19,7 @@ class StaffRepository {
             getAll.forEach(json_dentro_do_array => { delete json_dentro_do_array.id })
 
             if (!getAll) {
-                throw new Error('sem retorno')
+                throw new Error('sem retorno.')
             }
 
             return getAll
@@ -74,7 +74,7 @@ class StaffRepository {
             delete show.senha
 
             if (!show) {
-                throw new Error('usuario não encontrado')
+                throw new Error('usuario não encontrado.')
             }
 
             return show;
@@ -107,7 +107,7 @@ class StaffRepository {
             return true
 
         } catch (error) {
-            throw new Error("Erro ao verificar usuário");
+            throw new Error("Erro ao verificar usuário.");
         }
     }
 
@@ -135,7 +135,7 @@ class StaffRepository {
                 }
             });
 
-            return {status:'funcionário atualizado'}
+            return {status:'informações atualizadas.'}
             
 
         } catch (error) {
