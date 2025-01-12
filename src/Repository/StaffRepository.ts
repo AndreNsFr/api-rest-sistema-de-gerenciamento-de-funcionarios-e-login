@@ -134,6 +134,8 @@ class StaffRepository {
                     imagem: data.imagem ?? undefined
                 }
             });
+
+            return 'funcionário atualizado'
             
 
         } catch (error) {
