@@ -135,7 +135,7 @@ class StaffRepository {
                 }
             });
 
-            return 'funcionário atualizado'
+            return {status:'funcionário atualizado'}
             
 
         } catch (error) {
